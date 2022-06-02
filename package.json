@@ -1,0 +1,25 @@
+{
+  "name": "220518_food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Steppenw/220518_food.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Steppenw/220518_food/issues"
+  },
+  "homepage": "https://github.com/Steppenw/220518_food#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.43",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0"
+  }
+}

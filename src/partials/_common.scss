@@ -1,0 +1,60 @@
+/*COMMON*/
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+[class*="material-icons"].md-30 {
+    font-size: 30px; 
+}
+
+input:focus {
+    outline: none;
+}
+
+.font-serif {
+    font-family: $font-serif, serif;
+}
+
+.h-rule {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+}
+
+.card {
+    border: none;
+
+    .card-img-top {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &.card-lg {
+        margin-bottom: 30px;
+
+        .card-body {
+
+            .d-flex {
+                height: 50px;
+            }
+    
+            span {
+                font-size: 15px;
+                line-height: 25px;
+                margin-bottom: 25px;
+            }
+        }
+    }
+}
+
+.section-title {
+    margin-bottom: 50px;
+}
+
+.btn.orange {
+    background-color: $orange;
+    color: white;
+    border-radius: 0;
+    &:hover {
+        background-color: lighten($orange, 10);
+    }   
+}

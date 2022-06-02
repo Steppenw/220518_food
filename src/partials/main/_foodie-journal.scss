@@ -1,0 +1,26 @@
+/*MAIN_FOODIE-JOURNAL*/
+main {
+
+    .foodie-journal {
+        top: $foodie-journal_top;
+        width: 100%;
+        background-color: white;
+        padding: 0 ($bootstrap-col-px * 2);
+
+        @media screen and (min-width: 768px) {
+            top: $foodie-journal-md_top;
+        }
+
+        > div:first-child {
+            height: $bootstrap-col-px * 4;
+
+            span {
+                padding: 0 40px;
+            }
+        }
+
+        .card {
+            margin-bottom: ($bootstrap-col-px * 2);
+        }
+    }
+}

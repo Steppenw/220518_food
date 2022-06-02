@@ -1,0 +1,112 @@
+/*HEADER*/
+header {
+
+    .header-top {
+
+        a {
+            color: $oslo-gray;
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        [class*="material-icons"] {
+            color: $orange;
+        }
+
+        .close-icon[class*="material-icons"], &.responsive .menu-icon[class*="material-icons"], .navbar-links, .search {
+            display: none;
+        }
+
+        &.responsive .close-icon[class*="material-icons"], &.responsive .search {
+            display: block;
+        }
+
+        &.responsive .navbar-links {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        a {
+            color: $cape-cod;
+            &:hover {
+                color: $orange;
+            }
+        }
+
+        .search {
+
+            [class*="material-icons"] {
+                top: 50%;
+                transform: translateY(-50%);
+                color: $cape-cod;
+            }
+
+            .search-icon[class*="material-icons"] {
+                left: 8px;
+            }
+
+            #close-icon {
+                right: 8px;
+                cursor: pointer;
+            }
+
+            input {
+                height: 30px;
+                border: 1px solid $orange;
+                border-radius: 15px;
+                padding: 0 35px;
+
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .hero {
+        height: 85vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .pick-of-the-day {
+            max-width: 90%;
+            padding: $pick-of-the-day_padding;
+            top: calc(50% + ($foodie-journal_top / 2));
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+
+            @media screen and (min-width: 768px) {
+                top: calc(50% + ($foodie-journal-md_top / 2));
+            }
+
+            @media screen and (min-width: 992px) {
+                width: calc(100% / 3);
+            }
+
+            .content .position-absolute {
+                top: -($pick-of-the-day_padding);
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: $orange;
+                padding: 10px;
+                color: white;
+                box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}

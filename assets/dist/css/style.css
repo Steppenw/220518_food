@@ -1,0 +1,186 @@
+/*COMMON*/
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+[class*=material-icons].md-30 {
+  font-size: 30px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.font-serif {
+  font-family: "Lora", serif;
+}
+
+.h-rule {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card {
+  border: none;
+}
+.card .card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.card.card-lg {
+  margin-bottom: 30px;
+}
+.card.card-lg .card-body .d-flex {
+  height: 50px;
+}
+.card.card-lg .card-body span {
+  font-size: 15px;
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  margin-bottom: 50px;
+}
+
+.btn.orange {
+  background-color: #fc7525;
+  color: white;
+  border-radius: 0;
+}
+.btn.orange:hover {
+  background-color: #fd9557;
+}
+
+/*HEADER*/
+header .header-top a {
+  color: #96999a;
+}
+header .header-top a:hover {
+  color: #fc7525;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+}
+header nav [class*=material-icons] {
+  color: #fc7525;
+}
+header nav .close-icon[class*=material-icons], header nav.responsive .menu-icon[class*=material-icons], header nav .navbar-links, header nav .search {
+  display: none;
+}
+header nav.responsive .close-icon[class*=material-icons], header nav.responsive .search {
+  display: block;
+}
+header nav.responsive .navbar-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+header nav a {
+  color: #39403e;
+}
+header nav a:hover {
+  color: #fc7525;
+}
+header nav .search [class*=material-icons] {
+  top: 50%;
+  transform: translateY(-50%);
+  color: #39403e;
+}
+header nav .search .search-icon[class*=material-icons] {
+  left: 8px;
+}
+header nav .search #close-icon {
+  right: 8px;
+  cursor: pointer;
+}
+header nav .search input {
+  height: 30px;
+  border: 1px solid #fc7525;
+  border-radius: 15px;
+  padding: 0 35px;
+}
+@media screen and (max-width: 767px) {
+  header nav .search input {
+    width: 100%;
+  }
+}
+header .hero {
+  height: 85vh;
+}
+header .hero img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+header .hero .pick-of-the-day {
+  max-width: 90%;
+  padding: 25px;
+  top: calc(50% - 11px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+@media screen and (min-width: 768px) {
+  header .hero .pick-of-the-day {
+    top: calc(50% - 25px);
+  }
+}
+@media screen and (min-width: 992px) {
+  header .hero .pick-of-the-day {
+    width: 33.3333333333%;
+  }
+}
+header .hero .pick-of-the-day .content .position-absolute {
+  top: -25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fc7525;
+  padding: 10px;
+  color: white;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+}
+
+/*MAIN*/
+main {
+  background-color: #f6f7f1;
+}
+
+/*MAIN_FOODIE-JOURNAL*/
+main .foodie-journal {
+  top: -22px;
+  width: 100%;
+  background-color: white;
+  padding: 0 30px;
+}
+@media screen and (min-width: 768px) {
+  main .foodie-journal {
+    top: -50px;
+  }
+}
+main .foodie-journal > div:first-child {
+  height: 60px;
+}
+main .foodie-journal > div:first-child span {
+  padding: 0 40px;
+}
+main .foodie-journal .card {
+  margin-bottom: 30px;
+}
+
+/*MAIN_POPULAR-RECIPES*/
+main .popular-recipes .recipes-previews .col:nth-of-type(2n+1) {
+  padding-right: 7.5px;
+}
+main .popular-recipes .recipes-previews .col:nth-of-type(2n+2) {
+  padding-left: 7.5px;
+}
+main .popular-recipes .recipes-previews .card {
+  margin-bottom: 15px;
+}
