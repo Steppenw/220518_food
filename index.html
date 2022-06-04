@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>-->
-    <script src="assets/dist/js/vue.js"></script>
+    <script src="assets/dist/js/vue/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -32,14 +32,12 @@
 
                         <a href="#">Download App</a>
 
-                        <div class="social">
+                        <div class="socials">
 
                             <ul class="list-unstyled d-flex">
-                                <li class="ml-3 ml-sm-4" v-for="(el, index) in socialList" :key="index">
-                                    <a class="pb-sm-2" :href="el.href">
-                                        <i class="fab" :class="el.icon"></i>
-                                    </a>
-                                </li>
+                                <single-social v-for="(social, index) in socialList"
+                                               :social="social" :key="index">
+                                </single-social>
                             </ul>
 
                         </div>
@@ -70,10 +68,11 @@
 
                         <div class="navbar-links d-md-flex flex-md-row">
 
-                            <a v-for="link in navLinks" :key="link.text"
-                               class="nav-link py-md-2 px-md-3 px-0 mx-lg-2 py-lg-3 px-lg-4" :href="link.href">
-                               {{ link.text }}
-                            </a>
+                            <navbar-link v-for="link in navLinks"
+                                         :text="link.text"
+                                         :key="link.text"
+                                         :href="link.href">
+                            </navbar-link>
 
                         </div>
 
@@ -116,7 +115,7 @@
                         </h2>
 
                         <span class="font-serif text-muted">
-                            {{ getDate(pickOfTheDay.date) }}
+                            {{ (pickOfTheDay.moment_date) }}
                         </span>
 
                         <div class="position-absolute rounded-lg">
@@ -155,31 +154,10 @@
 
                         <div class="row row-cols-1 row-cols-md-3">
 
-                            <div v-for="el in foodieJournal" :key="el.id" class="col">
-
-                                <div class="card">
-
-                                    <img :src="el.img" class="card-img-top" :alt="el.title">
-
-                                    <div class="card-body pb-0">
-
-                                        <h5 class="card-title font-serif text-capitalize">
-                                            {{ el.title }}
-                                        </h5>
-
-                                        <div class="small text-muted">
-
-                                            <span>
-                                                By {{ el.author }} | {{ getDate(el.date) }}
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <post-preview v-for="post in foodieJournal"
+                                          :post="post"
+                                          :key="post.id">
+                            </post-preview>
 
                         </div>
 
@@ -263,8 +241,10 @@
 
     </div>
 
+    <script src="assets/dist/js/pick-of-the-day.js"></script>
     <script src="assets/dist/js/foodie-journal.js"></script>
     <script src="assets/dist/js/popular-recipes.js"></script>
+    <script src="assets/dist/js/vue/vue-components.js"></script>
     <script src="assets/dist/js/app.js"></script>
 </body>
 </html>

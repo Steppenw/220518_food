@@ -1,3 +1,8 @@
+function momentDate(dateString) {
+
+    return moment(dateString, 'DD/MM/YYYY').format('MMM Do, YYYY');
+};
+
 const app = new Vue({
 
     el: "#app",
@@ -6,10 +11,10 @@ const app = new Vue({
 
         socialList: [
 
-            {icon: 'fa-facebook-f', href: '#'},
-            {icon: 'fa-instagram', href: '#'},
-            {icon: 'fa-twitter', href: '#'},
-            {icon: 'fa-youtube', href: '#'}
+            {name: 'Facebook', icon: 'fa-facebook-f', href: '#'},
+            {name: 'Instagram', icon: 'fa-instagram', href: '#'},
+            {name: 'Twitter', icon: 'fa-twitter', href: '#'},
+            {name: 'YouTube', icon: 'fa-youtube', href: '#'}
         ],
         navLinks: [
 
@@ -21,12 +26,14 @@ const app = new Vue({
             {text: 'Contact', href: '#'}
         ],
         stringToSearchFor: "",
-        pickOfTheDay: {
-            img: "img/header/hero/single-post-img3.jpg",
-            text: "Food corner: top japanese restaurants for sushi",
-            date: "26-05-2021"
-        },
-        foodieJournal: foodieJournal.reverse().slice(0, 3),
+        pickOfTheDay: {...pickOfTheDay,
+                       moment_date: momentDate(pickOfTheDay.date)},
+        foodieJournal: foodieJournal.reverse().slice(0, 3)
+                                    .map((post) => {
+
+                                        return {...post,
+                                                moment_date: momentDate(post.date)}
+                                    }),
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
         popularRecipes: popularRecipes,
         foo: Math.floor(Math.random() * (popularRecipes.length))
@@ -43,10 +50,6 @@ const app = new Vue({
             this.stringToSearchFor = "";
 
             this.$refs.searchInput.focus();
-        },
-        getDate(dateString) {
-
-            return moment(dateString, 'DD/MM/YYYY').format('MMM Do, YYYY');
         },
         select(index) {
             this.foo = index;
