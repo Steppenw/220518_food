@@ -47,3 +47,33 @@ Vue.component('post-preview', {
         </div>
     `
 });
+
+Vue.component('single-post', {
+
+    props: ['source'],
+    template: `
+    <div class="card card-lg">
+
+        <img :src="source.img" class="card-img-top" :alt="source.title">
+
+        <div class="card-body p-4">
+
+            <h5 class="card-title font-serif text-capitalize mb-0">
+                {{ source.title }}
+            </h5>
+
+            <div class="d-flex align-items-center">
+                <div class="h-rule flex-grow-1"></div>
+            </div>
+
+            <span class="d-block text-muted text-justify">
+                {{ source.text }}                         
+            </span>
+
+            <a href="#" class="btn orange text-uppercase" role="button">Learn more</a>
+
+        </div>
+
+    </div>
+    `
+});

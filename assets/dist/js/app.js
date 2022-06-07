@@ -26,9 +26,8 @@ const app = new Vue({
             {text: 'Contact', href: '#'}
         ],
         stringToSearchFor: "",
-        pickOfTheDay: {...pickOfTheDay,
-                       moment_date: momentDate(pickOfTheDay.date)},
-        foodieJournal: foodieJournal.reverse().slice(0, 3)
+        pickOfTheDay: {},
+        foodieJournal: farmToTable.reverse().slice(0, 3)
                                     .map((post) => {
 
                                         return {...post,
@@ -58,9 +57,14 @@ const app = new Vue({
 
     computed: {
 
-        selectedRecipe() {
+        selectedPopularRecipe() {
 
             return this.popularRecipes[this.foo];
         }
+    },
+
+    beforeMount() {
+
+        this.pickOfTheDay = this.foodieJournal[0];
     }
 });

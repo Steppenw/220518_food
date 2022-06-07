@@ -111,7 +111,7 @@
                     <div class="content pt-3 text-center position-relative">
 
                         <h2 class="font-serif text-capitalize">
-                            {{ pickOfTheDay.text }}
+                            {{ pickOfTheDay.title }}
                         </h2>
 
                         <span class="font-serif text-muted">
@@ -181,29 +181,7 @@
 
                             <div id="selected-recipe" class="col">
 
-                                <div class="card card-lg">
-
-                                    <img :src="selectedRecipe.img" class="card-img-top" :alt="selectedRecipe.title">
-
-                                    <div class="card-body p-4">
-
-                                        <h5 class="card-title font-serif text-capitalize mb-0">
-                                            {{ selectedRecipe.title }}
-                                        </h5>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="h-rule flex-grow-1"></div>
-                                        </div>
-
-                                        <span class="d-block text-muted text-justify">
-                                            {{ selectedRecipe.text }}                         
-                                        </span>
-
-                                        <a href="#" class="btn orange text-uppercase" role="button">Learn more</a>
-
-                                    </div>
-
-                                </div>
+                                <single-post :source="selectedPopularRecipe"></single-post>
 
                             </div>
 
@@ -241,8 +219,7 @@
 
     </div>
 
-    <script src="assets/dist/js/pick-of-the-day.js"></script>
-    <script src="assets/dist/js/foodie-journal.js"></script>
+    <script src="assets/dist/js/farm-to-table.js"></script>
     <script src="assets/dist/js/popular-recipes.js"></script>
     <script src="assets/dist/js/vue/vue-components.js"></script>
     <script src="assets/dist/js/app.js"></script>
