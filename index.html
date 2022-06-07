@@ -181,7 +181,7 @@
 
                             <div id="selected-recipe" class="col">
 
-                                <single-post :source="selectedPopularRecipe"></single-post>
+                                <single-post :source="selectedRecipe"></single-post>
 
                             </div>
 
@@ -191,7 +191,7 @@
 
                                     <div v-for="(recipe, index) in popularRecipes" :key="recipe.id" class="col">
 
-                                        <div class="card" @click="select(index)">
+                                        <div class="card" @click="selectRecipe(index)">
 
                                             <a href="#selected-recipe">
                                                 <img class="img-fluid"
@@ -199,12 +199,47 @@
                                                      :alt="recipe.title"
                                                 :title="recipe.title">
                                             </a>
+
                                         </div>
                                         
                                     </div>
 
                                 </div>
 
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section class="culinary-collection">
+
+                        <div class="section-title row justify-content-md-center">
+
+                            <div class="col col-md-5 text-center">
+
+                                <h5 class="text-uppercase">Culinary collection</h5>
+
+                                <span class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni expedita atque nobis porro facilis eos.</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row row-cols-2 row-cols-md-4">
+
+                            <div v-for="(el, index) in culinaryCollection" :key="el.id" class="col">
+
+                                <a class="wrapper align-items-center text-reset text-decoration-none" href="#">
+
+                                    <img class="img-fluid"
+                                            :src="el.img"
+                                    :alt="el.text">
+
+                                    <h5 class="text-center text-uppercase">{{ el.text }}</h5>
+
+                                </a>
+                                
                             </div>
 
                         </div>
@@ -221,6 +256,7 @@
 
     <script src="assets/dist/js/farm-to-table.js"></script>
     <script src="assets/dist/js/popular-recipes.js"></script>
+    <script src="assets/dist/js/culinary-collection.js"></script>
     <script src="assets/dist/js/vue/vue-components.js"></script>
     <script src="assets/dist/js/app.js"></script>
 </body>

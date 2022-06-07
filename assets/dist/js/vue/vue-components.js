@@ -22,27 +22,31 @@ Vue.component('post-preview', {
     template: `
         <div class="col">
 
-            <div class="card">
+            <a class="text-reset text-decoration-none" href="#">
 
-                <img :src="post.img" class="card-img-top" :alt="post.title">
+                <div class="card">
 
-                <div class="card-body pb-0">
+                    <img :src="post.img" class="card-img-top" :alt="post.title">
 
-                    <h5 class="card-title font-serif text-capitalize">
-                        {{ post.title }}
-                    </h5>
+                    <div class="card-body pb-0">
 
-                    <div class="small text-muted">
+                        <h5 class="card-title font-serif text-capitalize">
+                            {{ post.title }}
+                        </h5>
 
-                        <span>
-                            By {{ post.author }} | {{ (post.moment_date) }}
-                        </span>
+                        <div class="small text-muted">
+
+                            <span>
+                                By {{ post.author }} | {{ (post.moment_date) }}
+                            </span>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            </a>
 
         </div>
     `
@@ -61,6 +65,14 @@ Vue.component('single-post', {
             <h5 class="card-title font-serif text-capitalize mb-0">
                 {{ source.title }}
             </h5>
+
+            <div v-if="source.moment_date" class="small text-muted">
+
+                <span>
+                    By {{ source.author }} | {{ (source.moment_date) }}
+                </span>
+
+            </div>
 
             <div class="d-flex align-items-center">
                 <div class="h-rule flex-grow-1"></div>

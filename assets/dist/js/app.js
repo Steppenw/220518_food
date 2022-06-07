@@ -35,7 +35,8 @@ const app = new Vue({
                                     }),
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
         popularRecipes: popularRecipes,
-        foo: Math.floor(Math.random() * (popularRecipes.length))
+        culinaryCollection: culinaryCollection,
+        selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length))
     },
 
     methods: {
@@ -50,16 +51,16 @@ const app = new Vue({
 
             this.$refs.searchInput.focus();
         },
-        select(index) {
-            this.foo = index;
+        selectRecipe(index) {
+            this.selectedRecipeIndex = index;
         }
     },
 
     computed: {
 
-        selectedPopularRecipe() {
+        selectedRecipe() {
 
-            return this.popularRecipes[this.foo];
+            return this.popularRecipes[this.selectedRecipeIndex];
         }
     },
 

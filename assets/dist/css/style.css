@@ -157,6 +157,9 @@ header .hero .pick-of-the-day .content .position-absolute {
 main {
   background-color: #f6f7f1;
 }
+main .popular-recipes, main .culinary-collection {
+  padding: 50px 0;
+}
 
 /*MAIN_FOODIE-JOURNAL*/
 main .foodie-journal {
@@ -189,4 +192,10 @@ main .popular-recipes .recipes-previews .col:nth-of-type(2n+2) {
 }
 main .popular-recipes .recipes-previews .card {
   margin-bottom: 15px;
+}
+
+/*MAIN_CULINARY-COLLECTION*/
+main .culinary-collection a {
+  background-color: white;
+  margin-bottom: 30px;
 }
