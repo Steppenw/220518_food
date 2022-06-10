@@ -27,16 +27,12 @@ const app = new Vue({
         ],
         stringToSearchFor: "",
         pickOfTheDay: {},
-        foodieJournal: farmToTable.reverse().slice(0, 3)
-                                    .map((post) => {
-
-                                        return {...post,
-                                                moment_date: momentDate(post.date)}
-                                    }),
+        foodieJournal: [],
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
         popularRecipes: popularRecipes,
         culinaryCollection: culinaryCollection,
-        selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length))
+        selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length)),
+        postsPreviews: 6
     },
 
     methods: {
@@ -61,11 +57,21 @@ const app = new Vue({
         selectedRecipe() {
 
             return this.popularRecipes[this.selectedRecipeIndex];
+        },
+        farmToTable() {
+
+            return farmToTable.map((post) => {
+
+                return {...post, moment_date: momentDate(post.date)};
+
+            }).reverse().slice(0, this.postsPreviews)
         }
     },
 
     beforeMount() {
 
+        this.foodieJournal = this.farmToTable.slice(0, 3)
+        
         this.pickOfTheDay = this.foodieJournal[0];
     }
 });

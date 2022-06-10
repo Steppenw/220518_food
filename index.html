@@ -264,6 +264,35 @@
 
                         </div>
 
+                        <div class="row">
+
+                            <div class="col-md-8">
+
+                                <div class="row row-cols-1">
+
+                                    <div class="col"></div>
+
+                                    <div class="posts-previews col">
+
+                                        <div class="row row-cols-2 text-center">
+
+                                            <post-preview v-for="post in farmToTable"
+                                                          :post="post"
+                                                          :key="post.id">
+                                            </post-preview>                                     
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col"></div>
+
+                        </div>
+
                     </section>
                     
                 </div>
