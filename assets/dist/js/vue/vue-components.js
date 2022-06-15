@@ -18,27 +18,38 @@ Vue.component('navbar-link', {
 
 Vue.component('post-preview', {
 
-    props: ['post'],
+    methods: {
+
+        select(index) {
+
+            console.log(index);
+        }
+    },
+    props: ['post', 'index'],
     template: `
-        <div class="col">
+        <div class="col" @click="select(index)">
 
             <a class="text-reset text-decoration-none" href="#">
 
                 <div class="card">
 
-                    <img :src="post.img" class="card-img-top" :alt="post.title">
+                    <img :src="post.img" class="card-img-top" :alt="post.title" :title="post.title">
 
-                    <div class="card-body pb-0">
+                    <div v-if="post.moment_date">
 
-                        <h5 class="card-title font-serif text-capitalize">
-                            {{ post.title }}
-                        </h5>
+                        <div class="card-body">
 
-                        <div class="small text-muted">
+                            <h5 class="card-title font-serif text-capitalize">
+                                {{ post.title }}
+                            </h5>
 
-                            <span>
-                                By {{ post.author }} | {{ (post.moment_date) }}
-                            </span>
+                            <div class="small text-muted">
+
+                                <span>
+                                    By {{ post.author }} | {{ (post.moment_date) }}
+                                </span>
+
+                            </div>
 
                         </div>
 

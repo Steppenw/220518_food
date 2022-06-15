@@ -154,10 +154,40 @@
 
                         <div class="row row-cols-1 row-cols-md-3">
 
-                            <post-preview v-for="post in foodieJournal"
+                            <div v-for="(post, index) in foodieJournal" class="col">
+
+                                <a class="text-reset text-decoration-none" href="#selected-post">
+                    
+                                    <div class="card" @click="selectPost(index)">
+                    
+                                        <img :src="post.img" class="card-img-top" :alt="post.title" :title="post.title">
+                    
+                                        <div class="card-body">
+                
+                                            <h5 class="card-title font-serif text-capitalize">
+                                                {{ post.title }}
+                                            </h5>
+                
+                                            <div class="small text-muted">
+                
+                                                <span>
+                                                    By {{ post.author }} | {{ (post.moment_date) }}
+                                                </span>
+                
+                                            </div>
+                
+                                        </div>
+                    
+                                    </div>
+                    
+                                </a>
+                    
+                            </div>
+                            
+                            <!--<post-preview v-for="post in foodieJournal"
                                           :post="post"
                                           :key="post.id">
-                            </post-preview>
+                            </post-preview>-->
 
                         </div>
 
@@ -188,21 +218,28 @@
                             <div class="recipes-previews col">
 
                                 <div class="row row-cols-2">
-
+                                    
                                     <div v-for="(recipe, index) in popularRecipes" :key="recipe.id" class="col">
 
-                                        <div class="card" @click="selectRecipe(index)">
+                                        <a href="#selected-recipe">
 
-                                            <a href="#selected-recipe">
+                                            <div class="card" @click="selectRecipe(index)">
+
                                                 <img class="img-fluid"
-                                                     :src="recipe.img"
-                                                     :alt="recipe.title"
+                                                        :src="recipe.img"
+                                                        :alt="recipe.title"
                                                 :title="recipe.title">
-                                            </a>
+                                            </div>
 
-                                        </div>
+                                        </a>
                                         
                                     </div>
+
+                                    <!--<post-preview v-for="(post, index) in popularRecipes"
+                                          :index="index"
+                                          :post="post"
+                                          :key="post.id">
+                                    </post-preview>-->
 
                                 </div>
 
@@ -270,18 +307,63 @@
 
                                 <div class="row row-cols-1">
 
-                                    <div class="col"></div>
+                                    <div id="selected-post" class="col">
+
+                                        <single-post :source="selectedPost"></single-post>
+        
+                                    </div>                               
 
                                     <div class="posts-previews col">
 
                                         <div class="row row-cols-2 text-center">
 
-                                            <post-preview v-for="post in farmToTable"
+                                            <div v-for="(post, index) in farmToTableSliced" class="col">
+
+                                                <a class="text-reset text-decoration-none" href="#selected-post">
+                                    
+                                                    <div class="card" @click="selectPost(index)">
+                                    
+                                                        <img :src="post.img" class="card-img-top" :alt="post.title" :title="post.title">
+                                    
+                                                        <div class="card-body">
+                                
+                                                            <h5 class="card-title font-serif text-capitalize">
+                                                                {{ post.title }}
+                                                            </h5>
+                                
+                                                            <div class="small text-muted">
+                                
+                                                                <span>
+                                                                    By {{ post.author }} | {{ (post.moment_date) }}
+                                                                </span>
+                                
+                                                            </div>
+                                
+                                                        </div>
+                                    
+                                                    </div>
+                                    
+                                                </a>
+                                    
+                                            </div>
+
+                                            <!--<post-preview v-for="post in farmToTableSliced"
                                                           :post="post"
                                                           :key="post.id">
-                                            </post-preview>                                     
+                                            </post-preview>-->
 
                                         </div>
+
+                                    </div>
+
+                                    <div class="col">
+
+                                        <button type="button"
+                                                class="btn btn-block orange text-uppercase"
+                                                @click="loadMorePosts"
+                                                :disabled="!morePosts">
+                                            {{ morePosts ? 'Load more posts' : 'No more posts' }}
+                                        </button>
 
                                     </div>
 

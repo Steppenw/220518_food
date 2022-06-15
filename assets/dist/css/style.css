@@ -22,6 +22,7 @@ input:focus {
 
 .card {
   border: none;
+  border-radius: 0;
 }
 .card .card-img-top {
   border-top-left-radius: 0;
@@ -48,7 +49,7 @@ input:focus {
   color: white;
   border-radius: 0;
 }
-.btn.orange:hover {
+.btn.orange:hover:not(:disabled) {
   background-color: #fd9557;
 }
 
@@ -160,6 +161,9 @@ main {
 main .popular-recipes, main .culinary-collection, main .farm-to-table {
   padding: 50px 0;
 }
+main .foodie-journal .card, main .culinary-collection a, main .farm-to-table .posts-previews .card {
+  margin-bottom: 30px;
+}
 
 /*MAIN_FOODIE-JOURNAL*/
 main .foodie-journal {
@@ -179,9 +183,6 @@ main .foodie-journal > div:first-child {
 main .foodie-journal > div:first-child span {
   padding: 0 40px;
 }
-main .foodie-journal .card {
-  margin-bottom: 30px;
-}
 
 /*MAIN_POPULAR-RECIPES*/
 main .popular-recipes .recipes-previews .col:nth-of-type(2n+1) {
@@ -197,7 +198,6 @@ main .popular-recipes .recipes-previews .card {
 /*MAIN_CULINARY-COLLECTION*/
 main .culinary-collection a {
   background-color: white;
-  margin-bottom: 30px;
 }
 
 /*MAIN_FARM-TO-TABLE*/

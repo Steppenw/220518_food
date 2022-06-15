@@ -5,4 +5,8 @@ main {
     .popular-recipes, .culinary-collection, .farm-to-table {
         padding: 50px 0;
     }
+
+    .foodie-journal .card, .culinary-collection a, .farm-to-table .posts-previews .card {
+        margin-bottom: ($bootstrap-col-px * 2);
+    }
 }

@@ -26,13 +26,15 @@ const app = new Vue({
             {text: 'Contact', href: '#'}
         ],
         stringToSearchFor: "",
+        farmToTable: [],
         pickOfTheDay: {},
         foodieJournal: [],
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
         popularRecipes: popularRecipes,
         culinaryCollection: culinaryCollection,
         selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length)),
-        postsPreviews: 6
+        postsPreviews: 6,
+        selectedPostIndex: 0
     },
 
     methods: {
@@ -48,7 +50,16 @@ const app = new Vue({
             this.$refs.searchInput.focus();
         },
         selectRecipe(index) {
+
             this.selectedRecipeIndex = index;
+        },
+        selectPost(index) {
+
+            this.selectedPostIndex = index;
+        },
+        loadMorePosts() {
+            
+            this.postsPreviews = this.postsPreviews + 2;
         }
     },
 
@@ -58,19 +69,28 @@ const app = new Vue({
 
             return this.popularRecipes[this.selectedRecipeIndex];
         },
-        farmToTable() {
+        farmToTableSliced() {
 
-            return farmToTable.map((post) => {
+            return this.farmToTable.slice(0, this.postsPreviews);
+        },
+        selectedPost() {
 
-                return {...post, moment_date: momentDate(post.date)};
+            return this.farmToTableSliced[this.selectedPostIndex];
+        },
+        morePosts() {
 
-            }).reverse().slice(0, this.postsPreviews)
+            return this.farmToTableSliced.length == this.farmToTable.length ? false : true;
         }
     },
 
     beforeMount() {
 
-        this.foodieJournal = this.farmToTable.slice(0, 3)
+        this.farmToTable = farmToTable.map((post) => {
+
+            return {...post, moment_date: momentDate(post.date)};
+        }).reverse();
+        
+        this.foodieJournal = this.farmToTable.slice(0, 3);
         
         this.pickOfTheDay = this.foodieJournal[0];
     }
