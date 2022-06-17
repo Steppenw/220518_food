@@ -18,18 +18,36 @@ Vue.component('navbar-link', {
 
 Vue.component('post-preview', {
 
-    methods: {
+    data() {
 
-        select(index) {
+        return {
 
-            console.log(index);
+            href: ""
         }
     },
-    props: ['post', 'index'],
-    template: `
-        <div class="col" @click="select(index)">
+    methods: {
 
-            <a class="text-reset text-decoration-none" href="#">
+        select(index, source) {
+
+            if (source == "farmToTable") {
+
+                //console.log(source + ", " + index);
+
+                this.href = "#selected-post";
+            
+            } else if (source == "popularRecipes") {
+
+                //console.log(source + ", " + index);
+
+                this.href = "#selected-recipe"
+            }
+        }
+    },
+    props: ['post', 'index', 'source'],
+    template: `
+        <div class="col" @click="select(index, source)">
+
+            <a class="text-reset text-decoration-none" :href="href">
 
                 <div class="card">
 

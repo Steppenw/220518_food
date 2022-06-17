@@ -2,7 +2,7 @@ const farmToTable = [
 
     {
         id: 0,
-        img: "img/main/farm-to-table/r-rachel-park-366508-unsplash-min-1200x790.jpg",
+        img: "img/main/farm-to-table/market.jpg",
         title: "Donec convallis, felis vel volutpat volutpat, velit sapien",
         text: "Donec lobortis vel tellus vitae vulputate. Vivamus sit amet aliquet felis. Nullam at posuere nisi. Praesent vestibulum purus eget quam tempus efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida lorem in nisl euismod facilisis. Vivamus vitae lectus id ipsum hendrerit faucibus. Aenean rutrum non massa non.",
         date: "20-05-2021",
@@ -10,7 +10,7 @@ const farmToTable = [
     },
     {
         id: 1,
-        img: "img/main/farm-to-table/Mixed-fruits-1200x790.jpg",
+        img: "img/main/farm-to-table/singapore-featured-image-1200x790.jpg",
         title: "Donec quis tortor accumsan, cursus tortor at, consequat",
         text: "Nulla id mauris blandit, dignissim risus quis, scelerisque dui. Duis lorem augue, elementum ut velit at, maximus consectetur mi. Nam in dapibus turpis, finibus faucibus risus. Vestibulum elementum sed justo ut faucibus. Curabitur ullamcorper vestibulum justo nec ullamcorper. Morbi tempor pellentesque turpis quis tincidunt. Nam gravida quam id libero cursus vehicula.",
         date: "20-05-2021",

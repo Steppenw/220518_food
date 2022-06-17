@@ -53,6 +53,10 @@ input:focus {
   background-color: #fd9557;
 }
 
+.btn:focus {
+  box-shadow: none;
+}
+
 /*HEADER*/
 header .header-top a {
   color: #96999a;

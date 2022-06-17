@@ -30,7 +30,7 @@ const app = new Vue({
         pickOfTheDay: {},
         foodieJournal: [],
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
-        popularRecipes: popularRecipes,
+        popularRecipes: [],
         culinaryCollection: culinaryCollection,
         selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length)),
         postsPreviews: 6,
@@ -87,11 +87,19 @@ const app = new Vue({
 
         this.farmToTable = farmToTable.map((post) => {
 
-            return {...post, moment_date: momentDate(post.date)};
+            return {...post,
+                    moment_date: momentDate(post.date),
+                    source: "farmToTable"};
         }).reverse();
         
         this.foodieJournal = this.farmToTable.slice(0, 3);
         
         this.pickOfTheDay = this.foodieJournal[0];
+
+        this.popularRecipes = popularRecipes.map((recipe) => {
+
+            return {...recipe,
+                    source: "popularRecipes"}
+        });
     }
 });
