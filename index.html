@@ -183,13 +183,17 @@
                                 </a>
                     
                             </div>-->
-                            
-                            <post-preview v-for="(post, index) in foodieJournal"
-                                          :post="post"
-                                          :source="post.source"
-                                          :index="index"
-                                          :key="post.id">
-                            </post-preview>
+
+                            <div v-for="(post, index) in foodieJournal"
+                                 :key="post.id"
+                                 class="col"
+                                 @click="select(index, post.source)">
+                                    
+                                <post-preview :post="post"
+                                              :href="hrefPost">
+                                </post-preview>
+
+                            </div>
 
                         </div>
 
@@ -237,12 +241,16 @@
                                         
                                     </div>-->
 
-                                    <post-preview v-for="(post, index) in popularRecipes"
-                                          :post="post"
-                                          :source="post.source"
-                                          :index="index"
-                                          :key="post.id">
-                                    </post-preview>
+                                    <div v-for="(recipe, index) in popularRecipes"
+                                         :key="recipe.id"
+                                         class="col"
+                                         @click="select(index, recipe.source)">
+                                    
+                                        <post-preview :post="recipe"
+                                                      :href="hrefRecipe">
+                                        </post-preview>
+
+                                    </div>
 
                                 </div>
 
@@ -350,12 +358,16 @@
                                     
                                             </div>-->
 
-                                            <post-preview v-for="(post, index) in farmToTableSliced"
-                                                          :post="post"
-                                                          :source="post.source"
-                                                          :index="index"
-                                                          :key="post.id">
-                                            </post-preview>
+                                            <div v-for="(post, index) in farmToTableSliced"
+                                                 :key="post.id"
+                                                 class="col"
+                                                 @click="select(index, post.source)">
+                                    
+                                                <post-preview :post="post"
+                                                              :href="hrefPost">
+                                                </post-preview>
+
+                                            </div>
 
                                         </div>
 

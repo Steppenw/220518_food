@@ -18,56 +18,27 @@ Vue.component('navbar-link', {
 
 Vue.component('post-preview', {
 
-    data() {
-
-        return {
-
-            href: ""
-        }
-    },
-    methods: {
-
-        select(index, source) {
-
-            if (source == "farmToTable") {
-
-                //console.log(source + ", " + index);
-
-                this.href = "#selected-post";
-            
-            } else if (source == "popularRecipes") {
-
-                //console.log(source + ", " + index);
-
-                this.href = "#selected-recipe"
-            }
-        }
-    },
-    props: ['post', 'index', 'source'],
+    props: ['post', 'href'],
     template: `
-        <div class="col" @click="select(index, source)">
+        <a class="text-reset text-decoration-none" :href="href">
 
-            <a class="text-reset text-decoration-none" :href="href">
+            <div class="card">
 
-                <div class="card">
+                <img :src="post.img" class="card-img-top" :alt="post.title" :title="post.title">
 
-                    <img :src="post.img" class="card-img-top" :alt="post.title" :title="post.title">
+                <div v-if="post.moment_date">
 
-                    <div v-if="post.moment_date">
+                    <div class="card-body">
 
-                        <div class="card-body">
+                        <h5 class="card-title font-serif text-capitalize">
+                            {{ post.title }}
+                        </h5>
 
-                            <h5 class="card-title font-serif text-capitalize">
-                                {{ post.title }}
-                            </h5>
+                        <div class="small text-muted">
 
-                            <div class="small text-muted">
-
-                                <span>
-                                    By {{ post.author }} | {{ (post.moment_date) }}
-                                </span>
-
-                            </div>
+                            <span>
+                                By {{ post.author }} | {{ (post.moment_date) }}
+                            </span>
 
                         </div>
 
@@ -75,9 +46,9 @@ Vue.component('post-preview', {
 
                 </div>
 
-            </a>
+            </div>
 
-        </div>
+        </a>
     `
 });
 

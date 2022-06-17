@@ -27,10 +27,12 @@ const app = new Vue({
         ],
         stringToSearchFor: "",
         farmToTable: [],
+        hrefPost: "#selected-post",
         pickOfTheDay: {},
         foodieJournal: [],
         //foodieJournal: foodieJournal.sort((a, b) => b.id - a.id).slice(0, 3),
         popularRecipes: [],
+        hrefRecipe: "#selected-recipe",
         culinaryCollection: culinaryCollection,
         selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length)),
         postsPreviews: 6,
@@ -49,13 +51,28 @@ const app = new Vue({
 
             this.$refs.searchInput.focus();
         },
-        selectRecipe(index) {
+        /*selectRecipe(index) {
 
             this.selectedRecipeIndex = index;
         },
         selectPost(index) {
 
             this.selectedPostIndex = index;
+        },*/
+        select(index, source) {
+
+            if (source == "farmToTable") {
+
+                //console.log(source + ", " + index);
+
+                this.selectedPostIndex = index;
+            
+            } else if (source == "popularRecipes") {
+
+                //console.log(source + ", " + index);
+
+                this.selectedRecipeIndex = index;
+            }
         },
         loadMorePosts() {
             
