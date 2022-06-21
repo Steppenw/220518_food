@@ -57,6 +57,13 @@ input:focus {
   box-shadow: none;
 }
 
+.position-absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /*HEADER*/
 header .header-top a {
   color: #96999a;
@@ -165,7 +172,7 @@ main {
 main .popular-recipes, main .culinary-collection, main .farm-to-table {
   padding: 50px 0;
 }
-main .foodie-journal .card, main .culinary-collection a, main .farm-to-table .posts-previews .card {
+main .foodie-journal .card, main .culinary-collection a, main .farm-to-table .col-md-8 .col:not(#selected-post) {
   margin-bottom: 30px;
 }
 
