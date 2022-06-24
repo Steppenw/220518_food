@@ -31,13 +31,14 @@ input:focus {
 .card.card-lg {
   margin-bottom: 30px;
 }
-.card.card-lg .card-body .d-flex {
-  height: 50px;
-}
 .card.card-lg .card-body span {
   font-size: 15px;
   line-height: 25px;
   margin-bottom: 25px;
+}
+
+.height-50 {
+  height: 50px;
 }
 
 .section-title {
@@ -214,4 +215,15 @@ main .culinary-collection a {
 /*MAIN_FARM-TO-TABLE*/
 main .farm-to-table .section-title {
   flex-direction: column;
+}
+main .farm-to-table .tab {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 10px 0;
+  cursor: pointer;
+}
+main .farm-to-table .tab:not(:first-of-type) {
+  border-left-style: none;
+}
+main .farm-to-table .tab.active-tab {
+  background-color: white;
 }

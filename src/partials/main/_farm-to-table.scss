@@ -1,7 +1,22 @@
 /*MAIN_FARM-TO-TABLE*/
 main {
 
-    .farm-to-table .section-title {
-        flex-direction: column;
+    .farm-to-table {
+
+        .section-title {
+            flex-direction: column;
+        }
+
+        .tab {
+            border: 1px solid rgba(0, 0, 0, .125);
+            padding: 10px 0;
+            cursor: pointer;
+            &:not(:first-of-type) {
+                border-left-style: none;
+            }
+            &.active-tab {
+                background-color: white;
+            }
+        }
     }
 }

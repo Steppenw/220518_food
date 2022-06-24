@@ -56,36 +56,71 @@ Vue.component('single-post', {
 
     props: ['source'],
     template: `
-    <div class="card card-lg">
+        <div class="card card-lg">
 
-        <img :src="source.img" class="card-img-top" :alt="source.title">
+            <img :src="source.img" class="card-img-top" :alt="source.title">
 
-        <div class="card-body p-4">
+            <div class="card-body p-4">
 
-            <h5 class="card-title font-serif text-capitalize mb-0">
-                {{ source.title }}
-            </h5>
+                <h5 class="card-title font-serif text-capitalize mb-0">
+                    {{ source.title }}
+                </h5>
 
-            <div v-if="source.moment_date" class="small text-muted">
+                <div v-if="source.moment_date" class="small text-muted">
 
-                <span>
-                    By {{ source.author }} | {{ (source.moment_date) }}
+                    <span>
+                        By {{ source.author }} | {{ (source.moment_date) }}
+                    </span>
+
+                </div>
+
+                <div class="d-flex align-items-center height-50">
+                    <div class="h-rule flex-grow-1"></div>
+                </div>
+
+                <span class="d-block text-muted text-justify">
+                    {{ source.text }}                         
                 </span>
 
+                <a href="#" class="btn orange text-uppercase" role="button">Learn more</a>
+
             </div>
-
-            <div class="d-flex align-items-center">
-                <div class="h-rule flex-grow-1"></div>
-            </div>
-
-            <span class="d-block text-muted text-justify">
-                {{ source.text }}                         
-            </span>
-
-            <a href="#" class="btn orange text-uppercase" role="button">Learn more</a>
 
         </div>
+    `
+});
 
-    </div>
+Vue.component('farm-to-table-tabs', {
+
+    data() {
+
+        return {
+
+            tabs: ["Popular", "Recent"],
+            selectedTab: "Popular"
+        }
+    },
+    template: `
+        <div class="farm-to-table-tabs">
+
+            <div class="d-flex">
+                <span v-for="(tab, index) in tabs"
+                    :key="index"
+                    class="tab flex-grow-1 text-center font-serif"
+                    :class="{'active-tab': selectedTab == tab}"
+                    @click="selectedTab = tab">
+                    {{ tab }}
+                </span>
+            </div>
+
+            <ul v-show="selectedTab == 'Popular'" class="list-unstyled">
+                <li>Popular</li>
+            </ul>
+
+            <ul v-show="selectedTab == 'Recent'" class="list-unstyled">
+                <li>Recent</li>
+            </ul>
+        
+        </div>
     `
 });

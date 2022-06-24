@@ -33,10 +33,6 @@ input:focus {
         margin-bottom: 30px;
 
         .card-body {
-
-            .d-flex {
-                height: 50px;
-            }
     
             span {
                 font-size: 15px;
@@ -45,6 +41,10 @@ input:focus {
             }
         }
     }
+}
+
+.height-50 {
+    height: 50px;
 }
 
 .section-title {
