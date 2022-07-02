@@ -216,14 +216,20 @@ main .culinary-collection a {
 main .farm-to-table .section-title {
   flex-direction: column;
 }
-main .farm-to-table .tab {
+main .farm-to-table .farm-to-table-tabs .tab {
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding: 10px 0;
   cursor: pointer;
 }
-main .farm-to-table .tab:not(:first-of-type) {
+main .farm-to-table .farm-to-table-tabs .tab:not(:first-of-type) {
   border-left-style: none;
 }
-main .farm-to-table .tab.active-tab {
+main .farm-to-table .farm-to-table-tabs .tab.active-tab {
+  background-color: white;
+}
+main .farm-to-table .farm-to-table-tabs ul li {
+  margin: 15px 0;
+}
+main .farm-to-table .farm-to-table-tabs ul li a:hover {
   background-color: white;
 }

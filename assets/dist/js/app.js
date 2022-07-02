@@ -27,6 +27,8 @@ const app = new Vue({
         ],
         stringToSearchFor: "",
         farmToTable: [],
+        farmToTablePopular: [],
+        farmToTableRecent: [],
         hrefPost: "#selected-post",
         pickOfTheDay: {},
         foodieJournal: [],
@@ -34,9 +36,11 @@ const app = new Vue({
         popularRecipes: [],
         hrefRecipe: "#selected-recipe",
         culinaryCollection: culinaryCollection,
-        selectedRecipeIndex: Math.floor(Math.random() * (popularRecipes.length)),
+        selectedRecipeId: popularRecipes[Math.floor(Math.random() * (popularRecipes.length))].id,
         postsPreviews: 6,
-        selectedPostIndex: 0
+        selectedPostId: farmToTable[farmToTable.length - 1].id,
+        tabs: ["Popular", "Recent"],
+        selectedTab: "Popular"
     },
 
     methods: {
@@ -59,19 +63,19 @@ const app = new Vue({
 
             this.selectedPostIndex = index;
         },*/
-        select(index, source) {
+        select(id, source) {
 
             if (source == "farmToTable") {
 
-                //console.log(source + ", " + index);
+                //console.log(source + ", " + id);
 
-                this.selectedPostIndex = index;
+                this.selectedPostId = id;
             
             } else if (source == "popularRecipes") {
 
-                //console.log(source + ", " + index);
+                //console.log(source + ", " + id);
 
-                this.selectedRecipeIndex = index;
+                this.selectedRecipeId = id;
             }
         },
         loadMorePosts() {
@@ -82,17 +86,17 @@ const app = new Vue({
 
     computed: {
 
+        selectedPost() {
+
+            return this.farmToTable.find((post) => post.id == this.selectedPostId);
+        },
         selectedRecipe() {
 
-            return this.popularRecipes[this.selectedRecipeIndex];
+            return this.popularRecipes.find((recipe) => recipe.id == this.selectedRecipeId);
         },
         farmToTableSliced() {
 
             return this.farmToTable.slice(0, this.postsPreviews);
-        },
-        selectedPost() {
-
-            return this.farmToTableSliced[this.selectedPostIndex];
         },
         morePosts() {
 
@@ -118,5 +122,9 @@ const app = new Vue({
             return {...recipe,
                     source: "popularRecipes"}
         });
+
+        this.farmToTablePopular = this.farmToTable.filter((post) => post.isPopular);
+
+        this.farmToTableRecent = this.farmToTable.slice(0, 5);
     }
 });

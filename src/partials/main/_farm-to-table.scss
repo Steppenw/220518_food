@@ -7,15 +7,28 @@ main {
             flex-direction: column;
         }
 
-        .tab {
-            border: 1px solid rgba(0, 0, 0, .125);
-            padding: 10px 0;
-            cursor: pointer;
-            &:not(:first-of-type) {
-                border-left-style: none;
+        .farm-to-table-tabs {
+
+            .tab {
+                border: 1px solid rgba(0, 0, 0, .125);
+                padding: 10px 0;
+                cursor: pointer;
+                &:not(:first-of-type) {
+                    border-left-style: none;
+                }
+                &.active-tab {
+                    background-color: white;
+                }
             }
-            &.active-tab {
-                background-color: white;
+
+            ul li {
+                margin: 15px 0;
+
+                a {
+                    &:hover {
+                        background-color: white;
+                    }
+                }
             }
         }
     }

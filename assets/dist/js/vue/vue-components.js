@@ -92,6 +92,8 @@ Vue.component('single-post', {
 
 Vue.component('farm-to-table-tabs', {
 
+    props: ['farmToTablePopular'],
+
     data() {
 
         return {
@@ -114,7 +116,21 @@ Vue.component('farm-to-table-tabs', {
             </div>
 
             <ul v-show="selectedTab == 'Popular'" class="list-unstyled">
-                <li>Popular</li>
+
+                <li v-for="post in farmToTablePopular" :key="post.id">
+
+                    <a href="#selected-post" class="wrapper text-reset text-decoration-none">
+                    
+                        <h6>{{ post.title }}</h6>
+
+                        <span class="small text-muted">
+                            {{ (post.moment_date) }}
+                        </span>
+
+                    </a>
+                    
+                </li>
+
             </ul>
 
             <ul v-show="selectedTab == 'Recent'" class="list-unstyled">

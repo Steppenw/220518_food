@@ -184,10 +184,10 @@
                     
                             </div>-->
 
-                            <div v-for="(post, index) in foodieJournal"
+                            <div v-for="post in foodieJournal"
                                  :key="post.id"
                                  class="col"
-                                 @click="select(index, post.source)">
+                                 @click="select(post.id, post.source)">
                                     
                                 <post-preview :post="post"
                                               :href="hrefPost">
@@ -241,10 +241,10 @@
                                         
                                     </div>-->
 
-                                    <div v-for="(recipe, index) in popularRecipes"
+                                    <div v-for="recipe in popularRecipes"
                                          :key="recipe.id"
                                          class="col"
-                                         @click="select(index, recipe.source)">
+                                         @click="select(recipe.id, recipe.source)">
                                     
                                         <post-preview :post="recipe"
                                                       :href="hrefRecipe">
@@ -358,10 +358,10 @@
                                     
                                             </div>-->
 
-                                            <div v-for="(post, index) in farmToTableSliced"
+                                            <div v-for="post in farmToTableSliced"
                                                  :key="post.id"
                                                  class="col"
-                                                 @click="select(index, post.source)">
+                                                 @click="select(post.id, post.source)">
                                     
                                                 <post-preview :post="post"
                                                               :href="hrefPost">
@@ -414,7 +414,61 @@
 
                                     <div class="col">
 
-                                        <farm-to-table-tabs></farm-to-table-tabs>
+                                        <div class="farm-to-table-tabs">
+
+                                            <div class="d-flex">
+                                                <span v-for="(tab, index) in tabs"
+                                                    :key="index"
+                                                    class="tab flex-grow-1 text-center font-serif"
+                                                    :class="{'active-tab': selectedTab == tab}"
+                                                    @click="selectedTab = tab">
+                                                    {{ tab }}
+                                                </span>
+                                            </div>
+                                
+                                            <ul v-show="selectedTab == 'Popular'" class="list-unstyled">
+                                
+                                                <li v-for="post in farmToTablePopular" :key="post.id">
+                                
+                                                    <a href="#selected-post"
+                                                       class="wrapper text-reset text-decoration-none"
+                                                       @click="select(post.id, post.source)">
+                                                    
+                                                        <h6>{{ post.title }}</h6>
+                                
+                                                        <span class="small text-muted">
+                                                            {{ (post.moment_date) }}
+                                                        </span>
+                                
+                                                    </a>
+                                                    
+                                                </li>
+                                
+                                            </ul>
+                                
+                                            <ul v-show="selectedTab == 'Recent'" class="list-unstyled">
+                                                
+                                                <li v-for="post in farmToTableRecent" :key="post.id">
+                                
+                                                    <a href="#selected-post"
+                                                       class="wrapper text-reset text-decoration-none"
+                                                       @click="select(post.id, post.source)">
+                                                    
+                                                        <h6>{{ post.title }}</h6>
+                                
+                                                        <span class="small text-muted">
+                                                            {{ (post.moment_date) }}
+                                                        </span>
+                                
+                                                    </a>
+                                                    
+                                                </li>
+
+                                            </ul>
+                                        
+                                        </div>
+                                        
+                                        <!--<farm-to-table-tabs :farm-to-table-popular="farmToTablePopular"></farm-to-table-tabs>-->
 
                                     </div>
 
